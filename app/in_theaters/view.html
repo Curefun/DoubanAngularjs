@@ -9,7 +9,9 @@
 		<p>上映年份：<span>{{item.year}}</span></p>
 		<p>导演：
 			<span ng-repeat="d in item.directors">
-				{{d.name+($last? '': ',')}}
+				<a href="{{d.alt}}">
+					{{d.name+($last? '': ',')}}
+				</a>
 			</span>
 		</p>
 		<p>主演：<span ng-repeat="actor in item.casts">
