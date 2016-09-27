@@ -1,0 +1,37 @@
+<h1 class="page-header">{{title}}</h1>
+<div class="media "  ng-repeat=" item in subjects">
+	<a class="media-left media-middle">
+		<img ng-src="{{item.images.medium}}">
+	</a>
+	<div class="media-body">
+		<h3 class="media-heading">{{item.title}}</h3>
+		<P>类型：<span>{{item.genres.join(',')}}</span></P>
+		<p>上映年份：<span>{{item.year}}</span></p>
+		<p>导演：
+			<span ng-repeat="d in item.directors">
+				<a href="{{d.alt}}">
+					{{d.name+($last? '': ',')}}
+				</a>
+			</span>
+		</p>
+		<p>主演：<span ng-repeat="actor in item.casts">
+					<a href="{{actor.alt}}">{{actor.name}}</a>
+				</span>
+		</p>
+	</div>
+</div>
+<footer ng-show="loading">
+	<nav>
+		<p>总共:<span>{{totalCount}}</span>条，第<span>{{currentPage}}</span>页,共<span>{{totalPage}}</span>页</p>
+		<ul class="pager">
+			<li ng-class="{disabled:currentPage <= 1}"><a href="" ng-click="go(currentPage-1)">&larr; 上一页</a></li>
+			<li ng-class="{disabled:currentPage >= totalPage}"><a href="" ng-click="go(currentPage+1)">下一页 &rarr;</a></li>
+		</ul>
+	</nav>
+</footer>
+<div class="mask" ng-show="!loading">
+	<div class="spinner">
+		<div class="dot1"></div>
+		<div class="dot2"></div>
+	</div>
+</div>

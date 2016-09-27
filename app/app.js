@@ -4,9 +4,7 @@
 angular.module('movicecat', [
   'ngRoute',
 	'moviecat.services.http',
-  	'moviecat.in_theaters',
-	'moviecat.coming_soon',
-	'moviecat.top250'
+  	'moviecat.category'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/in_theaters/1'});
