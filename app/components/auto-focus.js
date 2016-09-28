@@ -14,6 +14,8 @@
 						if(now.startsWith(type)){
 							iElm.parent().children().removeClass('active');
 							iElm.addClass('active');
+						}else if(now.startsWith('/search')) {
+							iElm.parent().children().removeClass('active');
 						}
 					})
 				}

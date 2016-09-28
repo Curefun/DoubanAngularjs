@@ -22,6 +22,7 @@
 					$scope.loading = false;
 				HttpService.jsonp('http://api.douban.com/v2/movie/'+$routeParams.category+'',
 					{
+						q:$routeParams.q,
 						start:start,
 						count:count
 					},function(data){
